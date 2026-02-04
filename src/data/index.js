@@ -19,8 +19,13 @@ export const services = [
     image: busImage,
     icon: Bus,
     description:
-      "Ideal para transporte de personal empresarial y viajes grupales.",
-    features: ["Transporte de personal", "Viajes grupales", "Excursiones"],
+      "Transporte seguro y cómodo para grupos grandes, ideal para personal empresarial, excursiones y viajes colectivos.",
+    features: [
+      "Transporte corporativo y escolar",
+      "Excursiones y viajes recreativos",
+      "Rutas personalizadas según necesidad",
+      "Amplio espacio y confort para todos los pasajeros"
+    ],
   },
   {
     title: "Van Chevrolet",
@@ -28,16 +33,26 @@ export const services = [
     image: vanImage,
     icon: Car,
     description:
-      "Perfecta para tours turísticos y traslados a aeropuerto.",
-    features: ["Tours turísticos", "Traslados aeropuerto", "Eventos especiales"],
+      "Vehículo versátil de mediana capacidad, perfecto para traslados turísticos, eventos y viajes interurbanos.",
+    features: [
+      "Traslados turísticos y empresariales",
+      "Eventos y viajes familiares",
+      "Rutas personalizadas en carretera",
+      "Comodidad y seguridad para grupos medianos"
+    ],
   },
   {
-    title: "Vehículo Ejecutivo",
+    title: "Vehículo Privado",
     capacity: "4 personas",
     image: carImage,
     icon: Briefcase,
     description:
-      "Servicio privado y personalizado para viajes de negocios.",
-    features: ["Servicio VIP", "Traslados privados", "Viajes al aeropueto"],
+      "Servicio privado y exclusivo para viajes de negocios, traslados al aeropuerto o transporte personal express.",
+    features: [
+      "Traslados ejecutivos y corporativos",
+      "Viajes locales y express",
+      "Servicio puntual y personalizado",
+      "Comodidad y privacidad garantizadas"
+    ],
   },
 ];

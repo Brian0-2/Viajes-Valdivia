@@ -119,7 +119,7 @@ export default function Contact() {
                            transition"
               >
                 <option value="">Selecciona un servicio</option>
-                <option value="Camión de pasajeros">Camión de pasajeros (32 personas)</option>
+                <option value="Camión de pasajeros">Camión de pasajeros (37 personas)</option>
                 <option value="Van">Van (14 personas)</option>
                 <option value="Ejecutivo">Vehículo ejecutivo</option>
                 <option value="Transporte de personal">Transporte de personal</option>
