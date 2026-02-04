@@ -1,5 +1,5 @@
-import Title from "@/ui/Title"
 import { services } from "@/data"
+import Title from "@/ui/Title"
 
 export default function Services() {
 
@@ -9,15 +9,13 @@ export default function Services() {
       className="py-24 bg-linear-to-b from-gray-100 to-white"
     >
       <div className="max-w-7xl mx-auto px-4">
-
         {/* Header */}
         <Title
           animation="fade-right"
           title="Nuestra Flotilla"
           description="Contamos con vehículos modernos y seguros para cada necesidad de transporte"
         />
-
-        {/* Grid */}
+        {/* Services Content */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <article
@@ -39,8 +37,7 @@ export default function Services() {
                              transition-transform duration-500
                              group-hover:scale-105"
                 />
-
-                {/* Capacity badge */}
+                {/* Capacity Badge */}
                 <span className="absolute top-4 right-4
                                  bg-amber-500 text-white
                                  text-sm font-semibold
@@ -48,7 +45,6 @@ export default function Services() {
                   {service.capacity}
                 </span>
               </div>
-
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
@@ -60,11 +56,9 @@ export default function Services() {
                     {service.title}
                   </h3>
                 </div>
-
                 <p className="text-gray-600 mb-5 leading-relaxed">
                   {service.description}
                 </p>
-
                 <ul className="space-y-2">
                   {service.features.map((feature) => (
                     <li

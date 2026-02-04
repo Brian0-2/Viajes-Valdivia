@@ -1,7 +1,9 @@
 import { Menu, X, Bus } from "lucide-react"
 import { useEffect, useState } from "react"
-import { navLinks } from "@/data"
+import { navLinks, PAGE_NAME } from "@/data"
 import Button from "@/ui/Button"
+import ScrollTop from "@/ui/ScrollTop"
+import { scrollToSection } from "@/helpers"
 
 export default function Navbar() {
 
@@ -16,12 +18,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsOpen(false)
+  const handleClick = (e,id) => {
+    e.preventDefault();
+    scrollToSection(id);
+    setIsOpen(false);
   }
 
   return (
@@ -34,11 +34,10 @@ export default function Navbar() {
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-
           {/* Logo */}
           <a
-            href="#inicio"
-            onClick={() => scrollToSection("#inicio")}
+            // href="#inicio"
+            onClick={() => handleClick("#inicio")}
             className="flex items-center gap-2 font-bold text-xl transition-colors"
             data-aos="fade-right"
             data-aos-duration="1500"
@@ -54,7 +53,7 @@ export default function Navbar() {
                 ${isScrolled ? "text-blue-900" : "text-white"}
               `}
             >
-              Viajes Valdivia
+              {PAGE_NAME}
             </span>
           </a>
 
@@ -69,7 +68,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => scrollToSection(link.href)}
+                onClick={(e) => handleClick(e,link.href)}
                 className={`relative text-sm font-medium transition-colors
                   ${isScrolled
                     ? "text-blue-900 hover:text-amber-500"
@@ -82,7 +81,7 @@ export default function Navbar() {
             ))}
 
             <Button
-              onClick={() => scrollToSection("#contacto")}
+              onClick={(e) => handleClick(e,"#contacto")}
               className={`font-semibold px-5 py-2 rounded-lg shadow-md transition-all
                 ${isScrolled
                   ? "bg-amber-500 hover:bg-amber-600 text-white"
@@ -150,10 +149,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection(link.href)
-                }}
+                onClick={(e) =>handleClick(e,link.href)}
                 className="text-lg font-medium text-blue-900 hover:text-amber-500 transition"
               >
                 {link.name}
@@ -161,7 +157,7 @@ export default function Navbar() {
             ))}
 
             <Button
-              onClick={() => scrollToSection("#contacto")}
+              onClick={(e) => handleClick(e,"#contacto")}
               className="bg-amber-500 hover:bg-amber-600 text-white mt-4 py-3 rounded-lg font-semibold shadow-md"
             >
               Cotizar Ahora
@@ -169,6 +165,9 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+      <ScrollTop
+        showScrollTop={isScrolled}
+      />
     </header>
   )
 }

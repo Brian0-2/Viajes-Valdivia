@@ -3,14 +3,14 @@ import vanImage from "@/assets/van-chevrolet.webp";
 import carImage from "@/assets/carro-beat.webp";
 import { Bus, Car, Briefcase } from "lucide-react";
 
+export const PHONE = "3781115665"
+export const PAGE_NAME = "Viajes Valdivia"
+
 export const navLinks = [
-    { name: "Inicio", href: "#inicio" },
-    { name: "Servicios", href: "#servicios" },
-    // { name: "Destinos", href: "#destinos" },
-    // { name: "Nosotros", href: "#nosotros" },
-    // { name: "Testimonios", href: "#testimonios" },
-    { name: "Contacto", href: "#contacto" },
-  ];
+  { name: "Inicio", href: "#inicio" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Contacto", href: "#contacto" },
+];
 
 export const services = [
   {
@@ -55,4 +55,11 @@ export const services = [
       "Comodidad y privacidad garantizadas"
     ],
   },
+];
+
+export const selectServiceOptions = [
+  "Camión de pasajeros (37 personas)",
+  "Van Chevrolet (14 personas)",
+  "Vehículo privado (4 personas)",
+  "Otro",
 ];

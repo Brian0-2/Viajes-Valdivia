@@ -1,17 +1,9 @@
 import heroImage from '@/assets/hero-altos-jalisco.webp'
 import Button from '@/ui/Button'
 import { ChevronDown } from 'lucide-react'
-import { yearsSince2002 } from '@/helpers'
+import { yearsSince2002,scrollToSection } from '@/helpers'
 
 export default function Hero() {
-
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <section
       id="inicio"
@@ -26,7 +18,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
         />
 
-        {/* Overlay con degradado */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70" />
       </div>
 
@@ -34,7 +26,7 @@ export default function Hero() {
       <div
         className="relative z-10 max-w-5xl px-4 text-center"
       >
-        {/* Subtítulo */}
+        {/* Subtitle */}
         <p
           className="text-white/80 text-sm md:text-base tracking-[0.25em] uppercase mb-4"
           data-aos="fade-down"
@@ -44,7 +36,7 @@ export default function Hero() {
           Transporte turístico y empresarial
         </p>
 
-        {/* Título */}
+        {/* Title */}
         <h1
           className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
           data-aos="fade-down"
@@ -57,7 +49,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Descripción */}
+        {/* Description */}
         <p
           className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto mb-10"
           data-aos="fade-down"
@@ -70,7 +62,7 @@ export default function Hero() {
           </span>
         </p>
 
-        {/* CTAs */}
+        {/* Info */}
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center"
           data-aos="fade-down"
@@ -92,7 +84,7 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <Button
         onClick={() => scrollToSection('#servicios')}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 hover:text-white animate-bounce"

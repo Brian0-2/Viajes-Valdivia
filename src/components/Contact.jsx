@@ -2,10 +2,11 @@ import { Send, Phone, MapPin, Clock } from "lucide-react"
 import { useState } from "react"
 import Button from "@/ui/Button"
 import Title from "@/ui/Title"
+import { selectServiceOptions, PHONE } from "@/data"
+import { formatPhoneNumber } from "@/helpers"
 
 export default function Contact() {
 
-  const WHATSAPP_NUMBER = "523781115665"
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -22,18 +23,17 @@ export default function Contact() {
 
     const text = `
       Hola, soy: 
-      ${formData.name}.
+      *${formData.name}*
 
-      Teléfono: 
+      *Teléfono:* 
       ${formData.phone}
-      Servicio: 
+      *Servicio:* 
       ${formData.service}
-
-      Mensaje:
+      *Mensaje:*
       ${formData.message}
-    `
+    `;
 
-    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    const whatsappURL = `https://wa.me/${PHONE}?text=${encodeURIComponent(
       text
     )}`
 
@@ -62,7 +62,7 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-12">
 
-          {/* Formulario */}
+          {/* Form */}
           <form
             onSubmit={handleSubmit}
             className="bg-white p-8 rounded-2xl shadow-lg space-y-6 border border-gray-100"
@@ -118,14 +118,22 @@ export default function Contact() {
                            focus:outline-none focus:ring-2 focus:ring-blue-600
                            transition"
               >
-                <option value="">Selecciona un servicio</option>
-                <option value="Camión de pasajeros">Camión de pasajeros (37 personas)</option>
-                <option value="Van">Van (14 personas)</option>
-                <option value="Ejecutivo">Vehículo ejecutivo</option>
-                <option value="Transporte de personal">Transporte de personal</option>
-                <option value="Tour">Tour turístico</option>
-                <option value="Aeropuerto">Traslado a aeropuerto</option>
-                <option value="Otro">Otro</option>
+                <option
+                  className="disable:bg-gray-200"
+                  disabled
+                  value=""
+                >
+                  Selecciona un servicio
+                </option>
+                {selectServiceOptions.map(option => (
+                  <option
+                    key={option}
+                    value={option}
+                    className="cursor-pointer"
+                  >
+                    {option}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -158,7 +166,7 @@ export default function Contact() {
             </Button>
           </form>
 
-          {/* Información de contacto */}
+          {/* Contact Info */}
           <div className="space-y-6">
             <div className="bg-white p-8 rounded-2xl shadow-lg space-y-6 border border-gray-100">
               <h3 className="text-xl font-semibold text-blue-900">
@@ -166,7 +174,7 @@ export default function Contact() {
               </h3>
 
               <a
-                href="tel:3781115665"
+                href={`tel:${PHONE}`}
                 className="flex items-center gap-4 hover:opacity-80 transition"
               >
                 <div className="p-3 bg-blue-900/10 rounded-lg">
@@ -174,7 +182,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Teléfono</p>
-                  <p className="font-medium text-gray-900">(378) 111 5665</p>
+                  <p className="font-medium text-gray-900">{formatPhoneNumber(PHONE)}</p>
                 </div>
               </a>
 
@@ -185,7 +193,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-gray-500">Ubicación</p>
                   <p className="font-medium text-gray-900">
-                    Capilla de Guadalupe, 47700, Jalisco
+                    Capilla de Guadalupe, 47700, Jalisco, México
                   </p>
                 </div>
               </div>
@@ -204,7 +212,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="tel:3781115665"
+              href={`tel:${PHONE}`}
               className="w-full flex items-center justify-center gap-2
                          bg-blue-600 hover:bg-blue-700
                          text-white py-3 rounded-lg font-semibold
