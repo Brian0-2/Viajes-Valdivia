@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+html,
+body {
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Titles */
+h1 {
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+h2 {
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+h3 {
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+/* UI */
+p,
+span,
+li,
+label,
+input,
+textarea,
+button {
+  font-family: 'Inter', system-ui, sans-serif;
+}
