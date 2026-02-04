@@ -15,7 +15,7 @@ export const navLinks = [
 export const services = [
   {
     title: "Camión de Pasajeros",
-    capacity: "32 personas",
+    capacity: "37 personas",
     image: busImage,
     icon: Bus,
     description:
@@ -38,6 +38,6 @@ export const services = [
     icon: Briefcase,
     description:
       "Servicio privado y personalizado para viajes de negocios.",
-    features: ["Servicio VIP", "Traslados privados", "Viajes de negocios"],
+    features: ["Servicio VIP", "Traslados privados", "Viajes al aeropueto"],
   },
 ];
